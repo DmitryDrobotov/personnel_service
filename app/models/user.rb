@@ -11,4 +11,6 @@ class User < ActiveRecord::Base
   belongs_to :chief, :class_name => "User"
   has_many :chiefs, :class_name => "User", :foreign_key => "chief_id"
 
+  has_and_belongs_to_many :activities
+
 end

@@ -1,4 +1,6 @@
 PersonnelService::Application.routes.draw do
+  resources :users
+
   resources :treatments
 
   resources :activities
