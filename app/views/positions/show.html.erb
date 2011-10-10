@@ -1,0 +1,20 @@
+<% title "Position" %>
+
+<p>
+  <strong>Department:</strong>
+  <%= @position.department %>
+</p>
+<p>
+  <strong>Name:</strong>
+  <%= @position.name %>
+</p>
+<p>
+  <strong>Manager:</strong>
+  <%= @position.manager %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_position_path(@position) %> |
+  <%= link_to "Destroy", @position, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", positions_path %>
+</p>

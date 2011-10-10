@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+a = Department.create!(:name => "Administration")
+d = Department.create!(:name => "Development")
+t = Department.create!(:name => "Testing")
+

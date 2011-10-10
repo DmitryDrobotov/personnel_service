@@ -1,4 +1,14 @@
 PersonnelService::Application.routes.draw do
+  resources :treatments
+
+  resources :activities
+
+  devise_for :users
+
+  root :to => "departments#index"
+  resources :positions
+  resources :departments
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
