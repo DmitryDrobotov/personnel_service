@@ -24,7 +24,7 @@
     </div>
   <% end -%>
   <div class="actions">
-  	<%= f.submit "Sign in", :class => "btn primary" %>
+  	<%= f.submit "Sign in" %>
   </div>  
 <% end %>
 

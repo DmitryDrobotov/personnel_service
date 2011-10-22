@@ -15,7 +15,7 @@
     <%= f.label :password_confirmation, "Confirm new password" %>
     <div class="input">
       <%= f.password_field :password_confirmation %>
-    </div>
+    <div>
   </div>
 
   <div class="actions">

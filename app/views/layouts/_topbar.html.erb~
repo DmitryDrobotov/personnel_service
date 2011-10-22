@@ -10,7 +10,7 @@
          <li><%= link_to "Treatments", treatments_path %></li>
          <li><%= link_to "Activities", activities_path %></li>
          <li class="dropdown" data-dropdown="dropdown">
-         	<a href="#" class="dropdown-toggle">Dropdown</a>
+         	<a href="#" class="dropdown-toggle">Settings</a>
          	<ul class="dropdown-menu">
          		<li><a href="#">Personal Settings</a></li>         		
          		<li><a href="#">Security</a></li>
@@ -21,8 +21,11 @@
          <input class="input-small" type="text" placeholder="Username" />
          <input class="input-small" type="password" placeholder="Password" />         
          <button class="btn" type="submit">Sign in</button>
-         <button class="btn" type="submit">Sign out</button>
-       </form>
+         <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>         
+       </form>  
+       
+
+           
      </div>
    </div>
 </div>

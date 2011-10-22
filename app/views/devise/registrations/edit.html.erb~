@@ -27,11 +27,9 @@
   </div>
 
   <div class="clearfix">
-    <%= f.label :current_password %>
+    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i>
     <div class="input">
       <%= f.password_field :current_password %>
-      <br />
-      <i>(we need your current password to confirm your changes)</i>
     </div>
   </div>
 
