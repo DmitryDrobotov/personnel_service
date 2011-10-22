@@ -22,7 +22,6 @@ gem 'cancan'
 gem 'nifty-generators'
 gem 'mocha'
 gem 'ajaxful_rating'
-gem 'formtastic'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -2,7 +2,7 @@
   <%= f.error_messages %>
   <p>
     <%= f.label :department %><br />
-    <%= f.text_field :department %>
+    <%= f.collection_select :department_id, Department.all, :id, :name %>
   </p>
   <p>
     <%= f.label :name %><br />
@@ -10,7 +10,7 @@
   </p>
   <p>
     <%= f.label :manager %><br />
-    <%= f.text_field :manager %>
+    <%= f.collection_select :manager_id, Position.all, :id, :name %>
   </p>
   <p><%= f.submit %></p>
 <% end %>
