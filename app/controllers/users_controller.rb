@@ -4,11 +4,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    if params[:id].present?
-      @user = User.find(params[:id])
-    else
-      @user = current_user
-    end
+    @user = params[:id].present? ? User.find(params[:id]) : current_user
   end
 
   def new
