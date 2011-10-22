@@ -25,9 +25,6 @@
 				<% end %>	          
             <%= yield %>
           </div>
-          <div class="span4">
-            <h3>Secondary content</h3>
-          </div>
         </div>
       </div>
 
