@@ -1,5 +1,7 @@
 PersonnelService::Application.routes.draw do
 
+  resources :events
+
   authenticate :user do
     root :to => "users#show"
   end

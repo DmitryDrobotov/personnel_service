@@ -2,13 +2,13 @@
 
 <table>
   <tr>
-    <th>Title</th>
-    <th>Details</th>
+    <th>User</th>
+    <th>Event</th>
   </tr>
   <% for activity in @activities %>
     <tr>
-      <td><%= activity.title %></td>
-      <td><%= activity.details %></td>
+      <td><%= activity.user %></td>
+      <td><%= activity.event %></td>
       <td><%= link_to "Show", activity %></td>
       <td><%= link_to "Edit", edit_activity_path(activity) %></td>
       <td><%= link_to "Destroy", activity, :confirm => 'Are you sure?', :method => :delete %></td>
