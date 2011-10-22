@@ -1,15 +1,18 @@
 PersonnelService::Application.routes.draw do
-  resources :users
 
-  resources :treatments
+  authenticate :user do
+    root :to => "users#show"
+  end
 
-  resources :activities
+  root :to => "devise/sessions#new"
 
   devise_for :users
-
-  root :to => "departments#index"
   resources :positions
   resources :departments
+  resources :users
+  resources :treatments
+  resources :activities
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

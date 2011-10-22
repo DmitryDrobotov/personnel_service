@@ -7,10 +7,14 @@ class User < ActiveRecord::Base
   belongs_to :position
   has_many :incoming_treatments, :class_name => "Treatment", :foreign_key => "user_to_id"
   has_many :outgoing_treatments, :class_name => "Treatment", :foreign_key => "user_from_id"
-
   belongs_to :chief, :class_name => "User"
   has_many :chiefs, :class_name => "User", :foreign_key => "chief_id"
-
   has_and_belongs_to_many :activities
+
+  before_create :set_default_role
+
+  def set_default_role
+    self.role ||= "employee"
+  end
 
 end

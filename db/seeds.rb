@@ -27,16 +27,10 @@ se = Position.create!(:name => "Software engineer", :department => d, :manager =
 ttl = Position.create!(:name => "Testing team lead", :department => t, :manager => ceo)
 t = Position.create!(:name => "Tester", :department => t, :manager => ttl)
 
-# Possible Activities
-conference = Activity.create!(:title => "Conference", :details => "Conference about new project")
-sport = Activity.create!(:title => "Sport activity", :details => "Sport competitions")
-research = Activity.create!(:title => "Research", :details => "Research in computer science")
-
 # Users
-user_ceo = User.create!(:email => "ceo@ceo.com", :password => "ceo@ceo.com", :first_name => "ceo", :last_name => "ceo")
-user_pm1 = User.create!(:email => "pm1@pm1.com", :password => "pm1@pm1.com", :first_name => "pm1", :last_name => "pm1")
-user_tl1 = User.create!(:email => "tl1@tl1.com", :password => "tl1@tl1.com", :first_name => "tl1", :last_name => "tl1")
-user_ttl = User.create!(:email => "ttl@ttl.com", :password => "ttl@ttl.com", :first_name => "ttl@ttl.com", :last_name => "ttl@ttl.com")
+user_ceo = User.create!(:email => "ceo@ceo.com", :password => "ceo@ceo.com", :first_name => "ceo", :last_name => "ceo", :role => "admin", :position => ceo)
+user_pm = User.create!(:email => "pm1@pm1.com", :password => "pm1@pm1.com", :first_name => "pm1", :last_name => "pm1", :role => "manager", :position => pm)
+user_tl = User.create!(:email => "tl@tl.com", :password => "tl@tl.com", :first_name => "tl", :last_name => "tl", :role => "employee", :position => tl)
 
 # User's treatment
-tr1 = Treatment.create!(:title => "hello!", :content => "hello, dear manager!", :user_to => user_pm1, :user_from => user_tl1)
+tr1 = Treatment.create!(:title => "hello!", :content => "hello, dear manager!", :user_to => user_pm, :user_from => user_tl)
