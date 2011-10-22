@@ -18,7 +18,7 @@
         <div class="row">
           <div class="span10">
 			   <% flash.each do |name, message| %>
-				<div class="<%= 'alert-message #{name}' %>" data-alert="alert">
+				<div class="<%= 'alert-message #{name}' %>">
 					<%= message %>
 					<a href="#" class="close">x</a>
 				</div>

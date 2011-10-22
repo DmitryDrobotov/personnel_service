@@ -1,0 +1,21 @@
+ <div class="topbar">
+   <div class="fill">
+     <div class="container">
+     	<%= link_to "Personnel Service", root_path, :class => "brand" %>       
+       <ul class="nav">
+         <li class="active"><%= link_to "Departments", departments_path %></li>
+         <li><%= link_to "Personnel", users_path %></li>
+         <li><%= link_to "Positions", positions_path %></li>
+         <li><%= link_to "Events", events_path %></li>
+         <li><%= link_to "Treatments", treatments_path %></li>
+         <li><%= link_to "Activities", activities_path %></li>
+       </ul>
+       <form action="" class="pull-right">
+         <input class="input-small" type="text" placeholder="Username" />
+         <input class="input-small" type="password" placeholder="Password" />         
+         <button class="btn" type="submit">Sign in</button>
+         <button class="btn" type="submit">Sign out</button>         
+       </form>
+     </div>
+   </div>
+</div>
