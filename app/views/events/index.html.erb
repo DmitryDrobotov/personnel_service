@@ -1,23 +1,30 @@
 <% title "Events" %>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Description</th>
-    <th>Start At</th>
-    <th>End At</th>
-  </tr>
-  <% for event in @events %>
+<table class="zebra-striped">
+  <thead>
     <tr>
-      <td><%= event.title %></td>
-      <td><%= event.description %></td>
-      <td><%= event.start_at %></td>
-      <td><%= event.end_at %></td>
-      <td><%= link_to "Show", event %></td>
-      <td><%= link_to "Edit", edit_event_path(event) %></td>
-      <td><%= link_to "Destroy", event, :confirm => 'Are you sure?', :method => :delete %></td>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Start At</th>
+      <th>End At</th>
+      <th>Actions</th>
     </tr>
-  <% end %>
+  </thead>
+  <tbody>
+    <% for event in @events %>
+      <tr>
+        <td><%= event.title %></td>
+        <td><%= event.description %></td>
+        <td><%= event.start_at.to_s(:long) %></td>
+        <td><%= event.end_at.to_s(:long) %></td>
+        <td>
+          <%= link_to "Show", event %>
+          <%= link_to "Edit", edit_event_path(event) %>
+          <%= link_to "Destroy", event, :confirm => 'Are you sure?', :method => :delete %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<p><%= link_to "New Event", new_event_path %></p>
+<div><%= button_to "New Event", new_event_path, :class => "btn primary" %></div>

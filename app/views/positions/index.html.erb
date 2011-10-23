@@ -1,21 +1,28 @@
 <% title "Positions" %>
 
-<table>
-  <tr>
-    <th>Department</th>
-    <th>Name</th>
-    <th>Manager</th>
-  </tr>
-  <% for position in @positions %>
+<table class="zebra-striped">
+  <thead>
     <tr>
-      <td><%= position.department %></td>
-      <td><%= position.name %></td>
-      <td><%= position.manager %></td>
-      <td><%= link_to "Show", position %></td>
-      <td><%= link_to "Edit", edit_position_path(position) %></td>
-      <td><%= link_to "Destroy", position, :confirm => 'Are you sure?', :method => :delete %></td>
+      <th>Position</th>
+      <th>Department</th>
+      <th>Manager</th>
+      <th>Actions</th>
     </tr>
-  <% end %>
+  </thead>
+  <tbody>
+    <% for position in @positions %>
+      <tr>
+        <td><%= position.name %></td>
+        <td><%= position.department.name if position.department.present? %></td>
+        <td><%= position.manager.name if position.manager.present?%></td>
+        <td>
+          <%= link_to "Show", position %>
+          <%= link_to "Edit", edit_position_path(position) %>
+          <%= link_to "Destroy", position, :confirm => 'Are you sure?', :method => :delete %>
+        </td>
+      </tr>
+    <% end %>
+  </tboby>
 </table>
 
-<p><%= link_to "New Position", new_position_path %></p>
+<div><%= button_to "New Position", new_position_path, :class => "btn primary", :method => :get %></div>
