@@ -1,5 +1,7 @@
 PersonnelService::Application.routes.draw do
 
+  get "ajax/positions_in_department"
+
   resources :events
 
   authenticate :user do
