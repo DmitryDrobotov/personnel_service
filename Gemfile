@@ -23,6 +23,7 @@ gem 'nifty-generators'
 gem 'mocha'
 gem 'ajaxful_rating'
 gem 'html_truncator'
+gem 'awesome_print'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
