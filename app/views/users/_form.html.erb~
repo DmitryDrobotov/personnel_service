@@ -42,7 +42,5 @@
     </div>
   </div>
   
-  <div class="actions">
-    <%= f.submit :class => "btn primary" %>
-  </div>
+  <p><%= f.submit %></p>
 <% end %>

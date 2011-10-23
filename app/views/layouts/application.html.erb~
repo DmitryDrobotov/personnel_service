@@ -16,7 +16,7 @@
           <%= content_tag :h1, yield(:title) if show_title? %>
         </div>
         <div class="row">
-          <div class="span10">
+          <div class="span16">
 			   <% flash.each do |name, message| %>
 				<div class="<%= 'alert-message #{name}' %>" data-alert="alert">
 					<%= message %>
@@ -26,13 +26,12 @@
             <%= yield %>
           </div>
         </div>
-      </div>
-
-      <footer>
-        <p>&copy; Company 2011</p>
-      </footer>
-
+      </div>      
     </div> <!-- /container -->
+    
+    <footer>
+      <p>&copy; Company 2011</p>
+    </footer>
 
   </body>
 </html>
