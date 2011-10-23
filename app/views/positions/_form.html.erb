@@ -18,7 +18,8 @@
   <div class="clearfix">
     <%= f.label :manager %>
     <div class="input">
-      <%= f.collection_select :manager_id, Position.all, :id, :name %>
+      <% department_id = @position.department.present? ? @position.department.id : Department.first.id %>
+      <%= f.collection_select :manager_id, Position.where(:department_id => department_id).all, :id, :name %>
     </div>
   </div>
 
