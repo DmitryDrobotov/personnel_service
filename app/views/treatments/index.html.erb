@@ -1,23 +1,26 @@
 <% title "Treatments" %>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Content</th>
-    <th>User To</th>
-    <th>User From</th>
-  </tr>
-  <% for treatment in @treatments %>
+<table class="zebra-striped">
+  <thead>
     <tr>
-      <td><%= treatment.title %></td>
-      <td><%= treatment.content %></td>
-      <td><%= treatment.user_to %></td>
-      <td><%= treatment.user_from %></td>
-      <td><%= link_to "Show", treatment %></td>
-      <td><%= link_to "Edit", edit_treatment_path(treatment) %></td>
-      <td><%= link_to "Destroy", treatment, :confirm => 'Are you sure?', :method => :delete %></td>
+      <th>Title</th>
+      <th>User From</th>
+      <th>Actions</th>
     </tr>
-  <% end %>
+  </thead>
+  <tbody>
+    <% for treatment in @treatments %>
+      <tr>
+        <td><%= treatment.title %></td>
+        <td><%= full_name_link_to_user treatment.user_from %></td>
+        <td>
+          <%= link_to "Show", treatment %>
+          <%= link_to "Edit", edit_treatment_path(treatment) %>
+          <%= link_to "Destroy", treatment, :confirm => 'Are you sure?', :method => :delete %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
-<p><%= link_to "New Treatment", new_treatment_path %></p>
+<div><%= button_to "New Treatment", new_treatment_path, :class => "btn primary", :method => :get %></div>
