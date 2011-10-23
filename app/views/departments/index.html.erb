@@ -1,11 +1,26 @@
 <% title "Departments" %>
-<ul>
+
+<table class="zebra-striped" id="sortTable">
+  <tr>
+    <th>
+      Department name
+    </th>
+    <th>
+      Actions
+    </th>
+  </tr>
   <% for department in @departments %>
-    <li>
-      <%= link_to department.name, department_path(department) %>
-    </li>
+    <tr>
+      <td>
+        <%= department.name %>
+      </td>
+      <td>          
+          <%= link_to "Edit", edit_department_path(department) %>
+          <%= link_to "Destroy", department, :confirm => 'Are you shure?', :method => :delete %>
+      </td>
+    </tr>
   <% end %>
-</ul>
+</table>
 
 <div>
   <%= button_to "New Department", new_department_path, :class => "btn primary", :method => :get %>
