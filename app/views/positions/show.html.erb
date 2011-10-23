@@ -2,7 +2,7 @@
 
 <p>
   <strong>Department:</strong>
-  <%= @position.department %>
+  <%= @position.department.name if @position.department.present? %>
 </p>
 <p>
   <strong>Name:</strong>

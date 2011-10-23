@@ -4,7 +4,7 @@
      	<%= link_to "Personnel Service", root_path, :class => "brand" %>       
        <ul class="nav">
          <li><%= link_to "Departments", departments_path %></li>
-         <li><%= link_to "Personnel", users_path %></li>
+         <li><%= link_to "Personnels", users_path %></li>
          <li><%= link_to "Positions", positions_path %></li>
          <li><%= link_to "Events", events_path %></li>
          <li><%= link_to "Treatments", treatments_path %></li>
@@ -16,7 +16,8 @@
          		<li><a href="#">Security</a></li>
          	</ul>
          </li>         
-       </ul>            
+       </ul>
+        <%= link_to "Log Out", destroy_user_session_path, :class => "pull-right btn primary", :method => :destroy %>
      </div>
    </div>
 </div>

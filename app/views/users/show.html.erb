@@ -14,11 +14,11 @@
 </p>
 <p>
   <strong>Position:</strong>
-  <%= @user.position %>
+  <%= @user.position.name if @user.position.present? %>
 </p>
 <p>
   <strong>Chief:</strong>
-  <%= @user.chief %>
+  <%= full_name_link_to_user @user.chief %>
 </p>
 <p>
   <strong>Role:</strong>

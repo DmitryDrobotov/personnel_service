@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>Title</th>
+      <th>Content</th>
       <th>User From</th>
       <th>Actions</th>
     </tr>
@@ -12,6 +13,7 @@
     <% for treatment in @treatments %>
       <tr>
         <td><%= treatment.title %></td>
+        <td><%= HTML_Truncator.truncate(treatment.content, 7) %></td>
         <td><%= full_name_link_to_user treatment.user_from %></td>
         <td>
           <%= link_to "Show", treatment %>

@@ -1,6 +1,13 @@
 <%= form_for @treatment do |f| %>
   <%= f.error_messages %>
   <div class="clearfix">
+    <%= f.label :user_to %>
+    <div class="input">
+      <%= f.collection_select :user_to_id, User.all, :id, :last_name %>
+    </div>
+  </div>
+
+  <div class="clearfix">
     <%= f.label :title %>
     <div class="input">
       <%= f.text_field :title %>
@@ -13,21 +20,7 @@
       <%= f.text_area :content %>
     </div>
   </div>
-  
-  <div class="clearfix">
-    <%= f.label :user_to %>
-    <div class="input">
-      <%= f.text_field :user_to %>
-    </div>
-  </div>
-  
-  <div class="clearfix">
-    <%= f.label :user_from %>
-    <div class="input">
-      <%= f.text_field :user_from %>
-    </div>
-  </div>
-  
+      
   <div class="actions">
     <%= f.submit :class => "btn primary" %>
   </div>
