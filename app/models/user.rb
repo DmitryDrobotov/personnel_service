@@ -21,4 +21,12 @@ class User < ActiveRecord::Base
     self.role ||= "employee"
   end
 
+  def set_default_password
+    self.password ||= "123456"
+  end
+
+  def full_name
+    self.first_name + " " + self.last_name
+  end
+
 end

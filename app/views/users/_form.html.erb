@@ -6,14 +6,7 @@
       <%= f.text_field :email %>
     </div>
   </div>
-
-  <div class="clearfix">
-    <%= f.label :password %>
-    <div class="input">
-      <%= f.password_field :password %>
-    </div>
-  </div>
-  
+ 
   <div class="clearfix">
     <%= f.label :first_name %>
     <div class="input">
@@ -31,14 +24,14 @@
   <div class="clearfix">
     <%= f.label :position %>
     <div class="input">
-      <%= f.collection_select :position_id, Position.all, :id, :name %>
+      <%= f.grouped_collection_select :position_id, Department.all, :positions, :name, :id, :name %>
     </div>
   </div>
   
   <div class="clearfix">
     <%= f.label :chief_id %>
     <div class="input">
-      <%= f.number_field :chief_id %>
+      <%= f.collection_select :chief_id, User.all, :id, :full_name, :include_blank => true %>
     </div>
   </div>
   

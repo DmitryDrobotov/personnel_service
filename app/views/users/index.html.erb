@@ -19,7 +19,7 @@
         <td><%= user.first_name %></td>
         <td><%= user.last_name %></td>
         <td><%= user.position.name if user.position.present? %></td>
-        <td><%= full_name_link_to_user user.chief %></td>
+        <td><%= user_full_name_link_to user.chief %></td>
         <td><%= user.role %></td>
         <td>
           <%= link_to "Show", user %>

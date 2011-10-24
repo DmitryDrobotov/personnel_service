@@ -10,7 +10,7 @@
 </p>
 <p>
   <strong>Manager:</strong>
-  <%= @position.manager %>
+  <%= @position.manager.name if @position.manager.present? %>
 </p>
 
 <p>
