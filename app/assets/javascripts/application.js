@@ -12,12 +12,12 @@ $(document).ready(function() {
   $("table#sortTable").tablesorter({ sortList: [[1,0]] });
 });
 
-$(document).ready(function() {
-  $('select#position_department_id').change(function(){
-    var url = "/ajax/positions_in_department?department_id=" + $(this).val();
-    $("select#position_manager_id").empty();
-    $.get(url, function(positions) {
-      $("select#position_manager_id").append(positions);
-    });
-  });
-});
+// $(document).ready(function() {
+//   $('select#position_department_id').change(function(){
+//     var url = "/ajax/positions_in_department?department_id=" + $(this).val();
+//     $("select#position_manager_id").empty();
+//     $.get(url, function(positions) {
+//       $("select#position_manager_id").append(positions);
+//     });
+//   });
+// });
