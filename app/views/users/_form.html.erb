@@ -38,7 +38,7 @@
   <div class="clearfix">
     <%= f.label :role %>
     <div class="input">
-      <%= f.text_field :role %>
+      <%= f.select :role, User::AVAILABLE_ROLES %>
     </div>
   </div>
   

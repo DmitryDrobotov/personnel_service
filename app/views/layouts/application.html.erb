@@ -12,18 +12,22 @@
     <div class="container">
 
       <div class="content">
+
         <div class="page-header">
           <%= content_tag :h1, yield(:title) if show_title? %>
         </div>
+
         <div class="row">
           <div class="span16">
-			   <% flash.each do |name, message| %>
-				<div class="<%= 'alert-message #{name}' %>" data-alert="alert">
-					<%= message %>
-					<a href="#" class="close">x</a>
-				</div>
-				<% end %>	          
+            <% flash.each do |name, message| %>
+  				    <div class="<%= 'alert-message #{name}' %>" data-alert="alert">
+                <%= message %>
+  					    <a href="#" class="close">x</a>
+  				    </div>
+				    <% end %>	          
+            
             <%= yield %>
+          
           </div>
         </div>
       </div>      

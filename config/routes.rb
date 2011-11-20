@@ -2,8 +2,6 @@ PersonnelService::Application.routes.draw do
 
   get "ajax/positions_in_department"
 
-  resources :events
-
   authenticate :user do
     root :to => "users#show"
   end
@@ -11,12 +9,13 @@ PersonnelService::Application.routes.draw do
   root :to => "devise/sessions#new"
 
   devise_for :users
+
+  resources :users
   resources :positions
   resources :departments
-  resources :users
   resources :treatments
   resources :activities
-
+  resources :events
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
