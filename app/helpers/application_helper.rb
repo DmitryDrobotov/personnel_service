@@ -7,7 +7,8 @@ module ApplicationHelper
   end
 
   def java_url(params = {})
-    ApplicationHelper::JAVA_URL + "?" + params.to_query
+    url = ApplicationHelper::JAVA_URL + "?" + params.to_query
+    url.html_safe
   end
 
 end
