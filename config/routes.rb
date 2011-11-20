@@ -1,14 +1,15 @@
 PersonnelService::Application.routes.draw do
 
   get "ajax/positions_in_department"
+  get "ajax/external_url_data"
+  get "activities/graph"
+  get "users/enrollment_statistics"
 
   authenticate :user do
     root :to => "users#show"
   end
 
   root :to => "devise/sessions#new"
-
-  get "activities/graph"
 
   devise_for :users
 

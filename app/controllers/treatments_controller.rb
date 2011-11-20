@@ -1,6 +1,6 @@
 class TreatmentsController < ApplicationController
   def index
-    @treatments = Treatment.all
+    @treatments = Treatment.where(:user_to_id => current_user.id).all
   end
 
   def show
@@ -13,6 +13,7 @@ class TreatmentsController < ApplicationController
 
   def create
     @treatment = Treatment.new(params[:treatment])
+    @treatment.user_from = current_user
     if @treatment.save
       redirect_to @treatment, :notice => "Successfully created treatment."
     else

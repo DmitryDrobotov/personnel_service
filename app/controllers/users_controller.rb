@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def index
     @users = User.all
   end
@@ -38,4 +39,9 @@ class UsersController < ApplicationController
     @user.destroy
     redirect_to users_url, :notice => "Successfully destroyed user."
   end
+
+  def enrollment_statistics
+
+  end
+  
 end

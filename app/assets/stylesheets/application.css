@@ -81,3 +81,7 @@ a {
 .error_messages ul {
   margin: 0;
 }
+
+div.datetime_select select {
+  width: 120px;
+}

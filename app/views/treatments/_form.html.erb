@@ -3,7 +3,7 @@
   <div class="clearfix">
     <%= f.label :user_to %>
     <div class="input">
-      <%= f.collection_select :user_to_id, User.all, :id, :last_name %>
+      <%= f.collection_select :user_to_id, User.all, :id, :full_name %>
     </div>
   </div>
 

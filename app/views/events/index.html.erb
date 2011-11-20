@@ -14,7 +14,7 @@
     <% for event in @events %>
       <tr>
         <td><%= event.title %></td>
-        <td><%= event.description %></td>
+        <td><%= HTML_Truncator.truncate(event.description, 5) %></td>
         <td><%= event.start_at.to_s(:long) %></td>
         <td><%= event.end_at.to_s(:long) %></td>
         <td>

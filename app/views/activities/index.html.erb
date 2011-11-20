@@ -1,19 +1,26 @@
 <% title "Activities" %>
 
 <table class="zebra-striped" id="sortTable">
-  <tr>
-    <th>User</th>
-    <th>Event</th>
-  </tr>
-  <% for activity in @activities %>
+  <thead>
     <tr>
-      <td><%= activity.user %></td>
-      <td><%= activity.event %></td>
-      <td><%= link_to "Show", activity %></td>
-      <td><%= link_to "Edit", edit_activity_path(activity) %></td>
-      <td><%= link_to "Destroy", activity, :confirm => 'Are you sure?', :method => :delete %></td>
+      <th>User</th>
+      <th>Event</th>
+      <th>Actions</th>
     </tr>
-  <% end %>
+  <thead>
+  <tbody>
+    <% for activity in @activities %>
+      <tr>
+        <td><%= activity.user.full_name %></td>
+        <td><%= activity.event.title %></td>
+        <td>
+          <%= link_to "Show", activity %>
+          <%= link_to "Edit", edit_activity_path(activity) %>
+          <%= link_to "Destroy", activity, :confirm => 'Are you sure?', :method => :delete %>
+        </td>
+      </tr>
+    <% end %>
+  <tbody>
 </table>
 
 <p><%= link_to "New Activity", new_activity_path %></p>

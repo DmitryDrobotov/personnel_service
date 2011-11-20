@@ -1,25 +1,25 @@
 <% title "Departments" %>
 
 <table class="zebra-striped" id="sortTable">
-  <tr>
-    <th>
-      Department name
-    </th>
-    <th>
-      Actions
-    </th>
-  </tr>
-  <% for department in @departments %>
+  <thead>
     <tr>
-      <td>
-        <%= department.name %>
-      </td>
-      <td>          
-          <%= link_to "Edit", edit_department_path(department) %>
-          <%= link_to "Destroy", department, :confirm => 'Are you shure?', :method => :delete %>
-      </td>
+      <th>Department name</th>
+      <th>Actions</th>
     </tr>
-  <% end %>
+  </thead>
+  <tbody>
+    <% for department in @departments %>
+      <tr>
+        <td>
+          <%= department.name %>
+        </td>
+        <td>          
+            <%= link_to "Edit", edit_department_path(department) %>
+            <%= link_to "Destroy", department, :confirm => 'Are you shure?', :method => :delete %>
+        </td>
+      </tr>
+    <% end %>
+  <tbody>
 </table>
 
 <div>

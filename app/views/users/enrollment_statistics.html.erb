@@ -1,0 +1,17 @@
+<% title "Enrollment Statistics" %>
+<% url = java_url(:method => "userActivities", :excipient => "enrollmentStatistics") %>
+
+<div id="enrollment_chart"></div>
+<div id="xml_data"></div>
+
+<script type="text/javascript">
+  $().ready( function() {
+    $("div#xml_data").load("/ajax/external_url_data?url=<%= url %>", function() {
+      var enrollmentChart = new FusionCharts("/charts/Column3D.swf", "chart_id", "800", "400", "0", "1");
+      enrollmentChart.setXMLData($("div#xml_data").html());
+      enrollmentChart.render("enrollment_chart");
+    });
+
+
+  });
+</script>
