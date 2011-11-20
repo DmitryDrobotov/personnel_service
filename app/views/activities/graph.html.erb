@@ -2,7 +2,12 @@
   $(document).ready(function() {
   
     var url = "http://localhost:8084/PersonnelService/graphs.do?method=userActivities&excipient=most10";
-    $("div.content").load(url);      
+    $("div.content").load(url, function(response, status, xhr) {
+      if (status == "error") {
+        var errorMsg = "Ошибка в процессе обработки запроса!";
+        $("div.span16").html("<div class='alert-message error' data-alert='alert'>" + errorMsg + "<a href='#' class='close'>x</a>" + "</div>");
+      }
+    });
   });
 
 </script>
