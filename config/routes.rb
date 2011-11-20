@@ -8,6 +8,8 @@ PersonnelService::Application.routes.draw do
 
   root :to => "devise/sessions#new"
 
+  get "activities/graph"
+
   devise_for :users
 
   resources :users
