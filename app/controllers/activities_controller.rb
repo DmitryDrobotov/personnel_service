@@ -38,4 +38,9 @@ class ActivitiesController < ApplicationController
     @activity.destroy
     redirect_to activities_url, :notice => "Successfully destroyed activity."
   end
+
+  def graph
+
+  end
+
 end
