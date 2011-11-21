@@ -38,4 +38,9 @@ class DepartmentsController < ApplicationController
     @department.destroy
     redirect_to departments_url, :notice => "Successfully destroyed department."
   end
+
+  def size_statistics
+
+  end
+
 end

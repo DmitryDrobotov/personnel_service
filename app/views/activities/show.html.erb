@@ -2,11 +2,11 @@
 
 <p>
   <strong>User:</strong>
-  <%= @activity.user %>
+  <%= link_to @activity.user.full_name, @activity.user %>
 </p>
 <p>
   <strong>Event:</strong>
-  <%= @activity.event %>
+  <%= link_to @activity.event.title, @activity.event %>
 </p>
 
 <p>

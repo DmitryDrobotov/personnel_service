@@ -1,9 +1,10 @@
 PersonnelService::Application.routes.draw do
 
   get "ajax/positions_in_department"
-  get "ajax/external_url_data"
+  get "ajax/java_url_data"
   get "activities/graph"
   get "users/enrollment_statistics"
+  get "departments/size_statistics"
 
   authenticate :user do
     root :to => "users#show"

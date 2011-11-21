@@ -11,8 +11,8 @@
   <tbody>
     <% for activity in @activities %>
       <tr>
-        <td><%= activity.user.full_name %></td>
-        <td><%= activity.event.title %></td>
+        <td><%= link_to activity.user.full_name, activity.user %></td>
+        <td><%= link_to activity.event.title, activity.event %></td>
         <td>
           <%= link_to "Show", activity %>
           <%= link_to "Edit", edit_activity_path(activity) %>

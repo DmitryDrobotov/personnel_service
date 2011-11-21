@@ -1,17 +1,39 @@
 <% title "Enrollment Statistics" %>
-<% url = java_url(:method => "userActivities", :excipient => "enrollmentStatistics") %>
+
+Filter:
+<%= text_field_tag "startDate", User.minimum("created_at").year, :placeholder => 'Enter start date...' %>
+&nbsp;-&nbsp;
+<%= text_field_tag "endDate", User.maximum("created_at").year, :placeholder => 'Enter end date...' %>
+<hr>
 
 <div id="enrollment_chart"></div>
-<div id="xml_data"></div>
 
-<script type="text/javascript">
+<script type="text/javascript">  
   $().ready( function() {
-    $("div#xml_data").load("/ajax/external_url_data?url=<%= url %>", function() {
-      var enrollmentChart = new FusionCharts("/charts/Column3D.swf", "chart_id", "800", "400", "0", "1");
-      enrollmentChart.setXMLData($("div#xml_data").html());
+
+    function buildChart(data) {
+      var enrollmentChart = new FusionCharts("/charts/Line.swf", "chart_id", "940", "400", "0", "1");
+      enrollmentChart.setXMLData(data);
       enrollmentChart.render("enrollment_chart");
-    });
+    }
 
+    function obtainData() {
+      var url = "/ajax/java_url_data?"
+                + "method=userActivities" + "&"
+                + "excipient=enrollmentStatistics" + "&"
+                + "startDate=" + $("input#startDate").val() + "&"
+                + "endDate=" + $("input#endDate").val()
+      $.ajax({
+        type: "GET",
+        url: url,
+        success: function(response) { buildChart(response); }
+      });
+    }
 
+    obtainData();
+
+    $("input#startDate").change(function() { obtainData(); });
+    $("input#endDate").change(function() { obtainData(); });
+      
   });
 </script>

@@ -1,8 +1,10 @@
 class AjaxController < ApplicationController
-  
-  require 'net/http'
-  require 'uri'
-  require 'base64'
+
+  JAVA_URL = "http://192.168.43.216:8080/PersonnelService/graphs.do"
+  TIMEOUT = 20
+
+  require 'open-uri'
+  require 'timeout'  
 
   def positions_in_department
     department_id = params[:department_id]
@@ -15,12 +17,21 @@ class AjaxController < ApplicationController
     render :text => "#{select_options.join("")}"
   end
 
-  def external_url_data
-    encoded_url = params[:url]
-    url = Base64.decode64(encoded_url)
-    p "\nFetching data from " + url
-    url = URI(url)
-    render :text => Net::HTTP.get(url)
+
+  def java_url_data
+    url = JAVA_URL + "?" + params.to_query
+    p ""
+    p "Fetching data from " + url
+    begin
+      Timeout::timeout(TIMEOUT) do
+        @data = open(url).read
+        p "Done!"
+      end
+      rescue 
+        @data = ""
+        p "Failed..."
+    end
+    render :text => @data
   end
 
 end
