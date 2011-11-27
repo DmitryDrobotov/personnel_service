@@ -9,7 +9,9 @@
 //= require_tree .
 
 $(document).ready(function() {
-  $("table#sortTable").tablesorter({ sortList: [[1,0]] });
+    $("table#sortTable").tablesorter({ sortList: [
+        [1,0]
+    ] });
 });
 
 // $(document).ready(function() {

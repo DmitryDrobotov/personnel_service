@@ -1,4 +1,7 @@
 class DepartmentsController < ApplicationController
+
+  authorize_resource
+
   def index
     @departments = Department.all
   end
@@ -27,7 +30,7 @@ class DepartmentsController < ApplicationController
   def update
     @department = Department.find(params[:id])
     if @department.update_attributes(params[:department])
-      redirect_to @department, :notice  => "Successfully updated department."
+      redirect_to @department, :notice => "Successfully updated department."
     else
       render :action => 'edit'
     end

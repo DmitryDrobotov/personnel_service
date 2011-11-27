@@ -4,7 +4,7 @@ class AjaxController < ApplicationController
   TIMEOUT = 20
 
   require 'open-uri'
-  require 'timeout'  
+  require 'timeout'
 
   def positions_in_department
     department_id = params[:department_id]
@@ -27,9 +27,9 @@ class AjaxController < ApplicationController
         @data = open(url).read
         p "Done!"
       end
-      rescue 
-        @data = ""
-        p "Failed..."
+    rescue
+      @data = ""
+      p "Failed..."
     end
     render :text => @data
   end

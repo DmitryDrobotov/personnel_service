@@ -1,4 +1,7 @@
 class EventsController < ApplicationController
+
+  authorize_resource
+
   def index
     @events = Event.all
   end
@@ -27,7 +30,7 @@ class EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
     if @event.update_attributes(params[:event])
-      redirect_to @event, :notice  => "Successfully updated event."
+      redirect_to @event, :notice => "Successfully updated event."
     else
       render :action => 'edit'
     end

@@ -1,27 +1,27 @@
 <%= form_for @treatment do |f| %>
-  <%= f.error_messages %>
-  <div class="clearfix">
-    <%= f.label :user_to %>
-    <div class="input">
-      <%= f.collection_select :user_to_id, User.all, :id, :full_name %>
+    <%= f.error_messages %>
+    <div class="clearfix">
+      <%= f.label :user_to %>
+      <div class="input">
+        <%= f.collection_select :user_to_id, User.all, :id, :full_name %>
+      </div>
     </div>
-  </div>
 
-  <div class="clearfix">
-    <%= f.label :title %>
-    <div class="input">
-      <%= f.text_field :title %>
+    <div class="clearfix">
+      <%= f.label :title %>
+      <div class="input">
+        <%= f.text_field :title %>
+      </div>
     </div>
-  </div>
-  
-  <div class="clearfix">
-    <%= f.label :content %>
-    <div class="input">
-      <%= f.text_area :content %>
+
+    <div class="clearfix">
+      <%= f.label :content %>
+      <div class="input">
+        <%= f.text_area :content %>
+      </div>
     </div>
-  </div>
-      
-  <div class="actions">
-    <%= f.submit :class => "btn primary" %>
-  </div>
+
+    <div class="actions">
+      <%= f.submit :class => "btn primary" %>
+    </div>
 <% end %>

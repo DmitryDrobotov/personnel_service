@@ -1,41 +1,41 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
-    <%= stylesheet_link_tag "application" %>
-    <%= javascript_include_tag "application" %>
-    <%= csrf_meta_tag %>
-    <%= yield(:head) %>
-  </head>
-  <body>
-  	<%= render :partial => "layouts/topbar" %>
-    <div class="container">
+<head>
+  <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+  <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tag %>
+  <%= yield(:head) %>
+</head>
+<body>
+<%= render :partial => "layouts/topbar" %>
+<div class="container">
 
-      <div class="content">
+  <div class="content">
 
-        <div class="page-header">
-          <%= content_tag :h1, yield(:title) if show_title? %>
-        </div>
-
-        <div class="row">
-          <div class="span16">
-            <% flash.each do |name, message| %>
-  				    <div class="<%= 'alert-message #{name}' %>" data-alert="alert">
-                <%= message %>
-  					    <a href="#" class="close">x</a>
-  				    </div>
-				    <% end %>	          
-            
-            <%= yield %>
-
-          </div>
-        </div>
-      </div>      
-      
-    <footer>
-      <p>&copy; Company 2011</p>
-    </footer>
-    
+    <div class="page-header">
+      <%= content_tag :h1, yield(:title) if show_title? %>
     </div>
-  </body>
+
+    <div class="row">
+      <div class="span16">
+        <% flash.each do |name, message| %>
+            <div class="<%= 'alert-message #{name}' %>" data-alert="alert">
+              <%= message %>
+              <a href="#" class="close">x</a>
+            </div>
+        <% end %>
+
+        <%= yield %>
+
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; Company 2011</p>
+  </footer>
+
+</div>
+</body>
 </html>

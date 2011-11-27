@@ -11,6 +11,9 @@ Position.delete_all
 User.delete_all
 Activity.delete_all
 
+puts "Create departments..."
+rand(10) + 1
+
 a = Department.create!(:name => "Administration")
 d = Department.create!(:name => "Development")
 t = Department.create!(:name => "Testing")

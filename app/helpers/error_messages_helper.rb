@@ -6,7 +6,7 @@ module ErrorMessagesHelper
     options[:message] ||= I18n.t(:"activerecord.errors.message", :default => "Correct the following errors and try again.")
     messages = objects.compact.map { |o| o.errors.full_messages }.flatten
     unless messages.empty?
-      content_tag(:div, :class => "alert-message error",  "data-alert" => "alert") do
+      content_tag(:div, :class => "alert-message error", "data-alert" => "alert") do
         list_items = messages.map { |msg| msg }
         error_message = options[:header_message] + ": " + list_items.join(", ").to_s + link_to("x", "#", :class => "close")
         error_message.html_safe

@@ -1,4 +1,7 @@
 class TreatmentsController < ApplicationController
+
+  authorize_resource
+
   def index
     @treatments = Treatment.where(:user_to_id => current_user.id).all
   end
@@ -28,7 +31,7 @@ class TreatmentsController < ApplicationController
   def update
     @treatment = Treatment.find(params[:id])
     if @treatment.update_attributes(params[:treatment])
-      redirect_to @treatment, :notice  => "Successfully updated treatment."
+      redirect_to @treatment, :notice => "Successfully updated treatment."
     else
       render :action => 'edit'
     end

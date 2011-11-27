@@ -2,15 +2,15 @@
 
 <p>
   <strong>User:</strong>
-  <%= link_to @activity.user.full_name, @activity.user %>
+  <%= link_to @activity.user.full_name, @activity.user if can? :read, @activity.user%>
 </p>
 <p>
   <strong>Event:</strong>
-  <%= link_to @activity.event.title, @activity.event %>
+  <%= link_to @activity.event.title, @activity.event if can? :read, @activity.event %>
 </p>
 
 <p>
-  <%= link_to "Edit", edit_activity_path(@activity) %> |
-  <%= link_to "Destroy", @activity, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", activities_path %>
+  <%= link_to "Edit", edit_activity_path(@activity) if can? :edit, @activity %> |
+  <%= link_to "Destroy", @activity, :confirm => 'Are you sure?', :method => :delete if can? :destroy, @activity %> |
+  <%= link_to "View All", activities_path if can? :read, Activity %>
 </p>

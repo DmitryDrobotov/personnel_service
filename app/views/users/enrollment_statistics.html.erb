@@ -8,32 +8,38 @@ Filter:
 
 <div id="enrollment_chart"></div>
 
-<script type="text/javascript">  
-  $().ready( function() {
+<script type="text/javascript">
+    $().ready(function() {
 
-    function buildChart(data) {
-      var enrollmentChart = new FusionCharts("/charts/Line.swf", "chart_id", "940", "400", "0", "1");
-      enrollmentChart.setXMLData(data);
-      enrollmentChart.render("enrollment_chart");
-    }
+        function buildChart(data) {
+            var enrollmentChart = new FusionCharts("/charts/Line.swf", "chart_id", "940", "400", "0", "1");
+            enrollmentChart.setXMLData(data);
+            enrollmentChart.render("enrollment_chart");
+        }
 
-    function obtainData() {
-      var url = "/ajax/java_url_data?"
-                + "method=userActivities" + "&"
-                + "excipient=enrollmentStatistics" + "&"
-                + "startDate=" + $("input#startDate").val() + "&"
-                + "endDate=" + $("input#endDate").val()
-      $.ajax({
-        type: "GET",
-        url: url,
-        success: function(response) { buildChart(response); }
-      });
-    }
+        function obtainData() {
+            var url = "/ajax/java_url_data?"
+                    + "method=userActivities" + "&"
+                    + "excipient=enrollmentStatistics" + "&"
+                    + "startDate=" + $("input#startDate").val() + "&"
+                    + "endDate=" + $("input#endDate").val()
+            $.ajax({
+                type: "GET",
+                url: url,
+                success: function(response) {
+                    buildChart(response);
+                }
+            });
+        }
 
-    obtainData();
+        obtainData();
 
-    $("input#startDate").change(function() { obtainData(); });
-    $("input#endDate").change(function() { obtainData(); });
-      
-  });
+        $("input#startDate").change(function() {
+            obtainData();
+        });
+        $("input#endDate").change(function() {
+            obtainData();
+        });
+
+    });
 </script>

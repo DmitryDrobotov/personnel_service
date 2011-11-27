@@ -2,27 +2,29 @@
 
 <table class="zebra-striped" id="sortTable">
   <thead>
-    <tr>
-      <th>Position</th>
-      <th>Department</th>
-      <th>Manager</th>
-      <th>Actions</th>
-    </tr>
+  <tr>
+    <th>Position</th>
+    <th>Department</th>
+    <th>Manager</th>
+    <th>Actions</th>
+  </tr>
   </thead>
   <tbody>
-    <% for position in @positions %>
+  <% for position in @positions %>
       <tr>
         <td><%= position.name %></td>
         <td><%= position.department.name if position.department.present? %></td>
-        <td><%= position.manager.name if position.manager.present?%></td>
+        <td><%= position.manager.name if position.manager.present? %></td>
         <td>
-          <%= link_to "Show", position %>
-          <%= link_to "Edit", edit_position_path(position) %>
-          <%= link_to "Destroy", position, :confirm => 'Are you sure?', :method => :delete %>
+          <%= link_to "Show", position if can? :read, position %>
+          <%= link_to "Edit", edit_position_path(position) if can? :update, position %>
+          <%= link_to "Destroy", position, :confirm => 'Are you sure?', :method => :delete if can? :destroy, position %>
         </td>
       </tr>
-    <% end %>
-  </tboby>
+  <% end %>
+  </tbody>
 </table>
 
-<div><%= button_to "New Position", new_position_path, :class => "btn primary", :method => :get %></div>
+<div>
+  <%= button_to "New Position", new_position_path, :class => "btn primary", :method => :get if can? :create, Position %>
+</div>

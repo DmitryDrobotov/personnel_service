@@ -2,27 +2,27 @@
 
 <table class="zebra-striped" id="sortTable">
   <thead>
-    <tr>
-      <th>Department name</th>
-      <th>Actions</th>
-    </tr>
+  <tr>
+    <th>Department name</th>
+    <th>Actions</th>
+  </tr>
   </thead>
   <tbody>
-    <% for department in @departments %>
+  <% for department in @departments %>
       <tr>
         <td>
           <%= department.name %>
         </td>
-        <td>          
-            <%= link_to "Edit", edit_department_path(department) %>
-            <%= link_to "Destroy", department, :confirm => 'Are you shure?', :method => :delete %>
+        <td>
+          <%= link_to "Edit", edit_department_path(department) if can? :update, department %>
+          <%= link_to "Destroy", department, :confirm => 'Are you shure?', :method => :delete if can? :destroy, department %>
         </td>
       </tr>
-    <% end %>
+  <% end %>
   <tbody>
-</table>
+  </table>
 
 <div>
-  <%= button_to "New Department", new_department_path, :class => "btn primary", :method => :get %>
+  <%= button_to "New Department", new_department_path, :class => "btn primary", :method => :get if can? :create, Department %>
   <%= link_to "Departments Size Statistics", departments_size_statistics_path %>
 </div>

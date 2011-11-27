@@ -14,7 +14,7 @@
 </p>
 
 <p>
-  <%= link_to "Edit", edit_treatment_path(@treatment) %> |
-  <%= link_to "Destroy", @treatment, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", treatments_path %>
+  <%= link_to "Edit", edit_treatment_path(@treatment) if can? :update, @treatment %> |
+  <%= link_to "Destroy", @treatment, :confirm => 'Are you sure?', :method => :delete if can? :destroy, @treatment %> |
+  <%= link_to "View All", treatments_path if can? :read, Treatment %>
 </p>

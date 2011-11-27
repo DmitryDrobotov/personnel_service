@@ -1,4 +1,7 @@
 class ActivitiesController < ApplicationController
+
+  authorize_resource
+
   def index
     @activities = Activity.all
   end
@@ -27,7 +30,7 @@ class ActivitiesController < ApplicationController
   def update
     @activity = Activity.find(params[:id])
     if @activity.update_attributes(params[:activity])
-      redirect_to @activity, :notice  => "Successfully updated activity."
+      redirect_to @activity, :notice => "Successfully updated activity."
     else
       render :action => 'edit'
     end

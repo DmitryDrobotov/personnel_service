@@ -2,29 +2,31 @@
 
 <table class="zebra-striped" id="sortTable">
   <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Start At</th>
-      <th>End At</th>
-      <th>Actions</th>
-    </tr>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Start At</th>
+    <th>End At</th>
+    <th>Actions</th>
+  </tr>
   </thead>
   <tbody>
-    <% for event in @events %>
+  <% for event in @events %>
       <tr>
         <td><%= event.title %></td>
         <td><%= HTML_Truncator.truncate(event.description, 5) %></td>
         <td><%= event.start_at.to_s(:long) %></td>
         <td><%= event.end_at.to_s(:long) %></td>
         <td>
-          <%= link_to "Show", event %>
-          <%= link_to "Edit", edit_event_path(event) %>
-          <%= link_to "Destroy", event, :confirm => 'Are you sure?', :method => :delete %>
+          <%= link_to "Show", event if can? :read, event%>
+          <%= link_to "Edit", edit_event_path(event) if can? :update, event %>
+          <%= link_to "Destroy", event, :confirm => 'Are you sure?', :method => :delete if can? :destroy, event %>
         </td>
       </tr>
-    <% end %>
+  <% end %>
   </tbody>
 </table>
 
-<div><%= button_to "New Event", new_event_path, :class => "btn primary", :method => :get %></div>
+<div>
+  <%= button_to "New Event", new_event_path, :class => "btn primary", :method => :get if can? :create, Event %>
+</div>

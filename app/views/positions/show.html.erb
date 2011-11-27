@@ -14,7 +14,7 @@
 </p>
 
 <p>
-  <%= link_to "Edit", edit_position_path(@position) %> |
-  <%= link_to "Destroy", @position, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", positions_path %>
+  <%= link_to "Edit", edit_position_path(@position) if can? :update, @position %> |
+  <%= link_to "Destroy", @position, :confirm => 'Are you sure?', :method => :delete if can? :destroy, @position %> |
+  <%= link_to "View All", positions_path if can? :read, Position %>
 </p>

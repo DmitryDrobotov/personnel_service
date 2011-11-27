@@ -8,10 +8,11 @@ class Ability
       can :read, [Department, Position]
       can :manage, [Activity, Treatment, User, Event]
     elsif user.role == "training-manager"
+      can :read, [Department, Position]
       can :manage, [Activity, Treatment, User, Event]
     elsif user.role == "employee"
       can :read, :all
-      can [:create, :update], User do |u|
+      can [:update], User do |u|
         user == u
       end
     end

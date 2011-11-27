@@ -1,1 +1,5 @@
-<chart showBorder="1" numberPrefix="$" caption="Top 5 Sales Person" yAxisName="Sales Figure"><set value="2011" label="ceo ceo"/><set value="2011" label="pm1 pm1"/><set value="2011" label="tl tl"/></chart>
+<chart showBorder="1" numberPrefix="$" caption="Top 5 Sales Person" yAxisName="Sales Figure">
+  <set value="2011" label="ceo ceo"/>
+  <set value="2011" label="pm1 pm1"/>
+  <set value="2011" label="tl tl"/>
+</chart>

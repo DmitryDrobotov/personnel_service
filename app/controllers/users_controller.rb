@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  authorize_resource
+
   def index
     @users = User.all
   end
@@ -28,7 +30,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
-      redirect_to @user, :notice  => "Successfully updated user."
+      redirect_to @user, :notice => "Successfully updated user."
     else
       render :action => 'edit'
     end
@@ -43,5 +45,5 @@ class UsersController < ApplicationController
   def enrollment_statistics
 
   end
-  
+
 end

@@ -10,12 +10,12 @@ class User < ActiveRecord::Base
 
   has_many :incoming_treatments, :class_name => "Treatment", :foreign_key => "user_to_id"
   has_many :outgoing_treatments, :class_name => "Treatment", :foreign_key => "user_from_id"
-  
+
   belongs_to :chief, :class_name => "User"
   has_many :chiefs, :class_name => "User", :foreign_key => "chief_id"
 
   has_many :activities
-  has_many :events, :through =>  :activities
+  has_many :events, :through => :activities
 
   before_validation :set_default_role
   before_validation :set_default_password
@@ -43,4 +43,27 @@ class User < ActiveRecord::Base
     self.password ||= "123456"
   end
 
-end
+end # == Schema Information
+    #
+    # Table name: users
+    #
+    #  id                     :integer(4)      not null, primary key
+    #  email                  :string(255)     default(""), not null
+    #  encrypted_password     :string(128)     default(""), not null
+    #  reset_password_token   :string(255)
+    #  reset_password_sent_at :datetime
+    #  remember_created_at    :datetime
+    #  sign_in_count          :integer(4)      default(0)
+    #  current_sign_in_at     :datetime
+    #  last_sign_in_at        :datetime
+    #  current_sign_in_ip     :string(255)
+    #  last_sign_in_ip        :string(255)
+    #  first_name             :string(255)
+    #  last_name              :string(255)
+    #  position_id            :integer(4)
+    #  chief_id               :integer(4)
+    #  created_at             :datetime
+    #  updated_at             :datetime
+    #  role                   :string(255)     default("employee")
+    #
+

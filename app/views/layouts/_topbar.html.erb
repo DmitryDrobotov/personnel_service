@@ -1,22 +1,22 @@
- <div class="topbar">
-   <div class="fill">
-     <div class="container">
-     	<%= link_to "Personnel Service", root_path, :class => "brand" %>       
-       <ul class="nav">
-         <li><%= link_to "Departments", departments_path %></li>
-         <li><%= link_to "Users", users_path %></li>
-         <li><%= link_to "Positions", positions_path %></li>
-         <li><%= link_to "Events", events_path %></li>
-         <li><%= link_to "Treatments", treatments_path %></li>
-         <li><%= link_to "Activities", activities_path %></li>
-         <li class="dropdown" data-dropdown="dropdown">
-         	<a href="#" class="dropdown-toggle">Settings</a>
-         	<ul class="dropdown-menu">
-                <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
-         	</ul>
-         </li>         
-       </ul>
-     </div>
-   </div>
+<div class="topbar">
+  <div class="fill">
+    <div class="container">
+      <%= link_to "Personnel Service", root_path, :class => "brand" %>
+      <ul class="nav">
+        <li><%= link_to "Departments", departments_path %></li>
+        <li><%= link_to "Users", users_path %></li>
+        <li><%= link_to "Positions", positions_path %></li>
+        <li><%= link_to "Events", events_path %></li>
+        <li><%= link_to "Treatments", treatments_path %></li>
+        <li><%= link_to "Activities", activities_path %></li>
+        <li class="dropdown" data-dropdown="dropdown">
+          <a href="#" class="dropdown-toggle">Settings</a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>
 

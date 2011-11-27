@@ -1,55 +1,55 @@
 <%= form_for @user do |f| %>
-  <%= f.error_messages %>
-  <div class="clearfix">
-    <%= f.label :email %>
-    <div class="input">
-      <%= f.text_field :email %>
+    <%= f.error_messages %>
+    <div class="clearfix">
+      <%= f.label :email %>
+      <div class="input">
+        <%= f.text_field :email %>
+      </div>
     </div>
-  </div>
 
-  <div class="clearfix">
-    <%= f.label :password %>
-    <div class="input">
-      <%= f.password_field :password %>
+    <div class="clearfix">
+      <%= f.label :password %>
+      <div class="input">
+        <%= f.password_field :password %>
+      </div>
     </div>
-  </div>
- 
-  <div class="clearfix">
-    <%= f.label :first_name %>
-    <div class="input">
-      <%= f.text_field :first_name %>
+
+    <div class="clearfix">
+      <%= f.label :first_name %>
+      <div class="input">
+        <%= f.text_field :first_name %>
+      </div>
     </div>
-  </div>
-  
-  <div class="clearfix">
-    <%= f.label :last_name %>
-    <div class="input">
-      <%= f.text_field :last_name %>
+
+    <div class="clearfix">
+      <%= f.label :last_name %>
+      <div class="input">
+        <%= f.text_field :last_name %>
+      </div>
     </div>
-  </div>
-  
-  <div class="clearfix">
-    <%= f.label :position %>
-    <div class="input">
-      <%= f.grouped_collection_select :position_id, Department.all, :positions, :name, :id, :name %>
+
+    <div class="clearfix">
+      <%= f.label :position %>
+      <div class="input">
+        <%= f.grouped_collection_select :position_id, Department.all, :positions, :name, :id, :name %>
+      </div>
     </div>
-  </div>
-  
-  <div class="clearfix">
-    <%= f.label :chief_id %>
-    <div class="input">
-      <%= f.collection_select :chief_id, User.all, :id, :full_name, :include_blank => true %>
+
+    <div class="clearfix">
+      <%= f.label :chief_id %>
+      <div class="input">
+        <%= f.collection_select :chief_id, User.all, :id, :full_name, :include_blank => true %>
+      </div>
     </div>
-  </div>
-  
-  <div class="clearfix">
-    <%= f.label :role %>
-    <div class="input">
-      <%= f.select :role, User::AVAILABLE_ROLES %>
+
+    <div class="clearfix">
+      <%= f.label :role %>
+      <div class="input">
+        <%= f.select :role, User::AVAILABLE_ROLES %>
+      </div>
     </div>
-  </div>
-  
-  <div class="actions">
-    <%= f.submit :class => "btn primary" %>
-  </div>
+
+    <div class="actions">
+      <%= f.submit :class => "btn primary" %>
+    </div>
 <% end %>

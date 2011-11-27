@@ -1,4 +1,7 @@
 class PositionsController < ApplicationController
+
+  authorize_resource
+
   def index
     @positions = Position.all
   end
@@ -27,7 +30,7 @@ class PositionsController < ApplicationController
   def update
     @position = Position.find(params[:id])
     if @position.update_attributes(params[:position])
-      redirect_to @position, :notice  => "Successfully updated position."
+      redirect_to @position, :notice => "Successfully updated position."
     else
       render :action => 'edit'
     end

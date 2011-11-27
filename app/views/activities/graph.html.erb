@@ -1,13 +1,13 @@
 <script type="text/javascript">
-  $(document).ready(function() {
+    $(document).ready(function() {
 
-    var url = "<%= java_url :method => 'userActivities', :excipient => 'most10' %>"
+        var url = "<%= java_url :method => 'userActivities', :excipient => 'most10' %>"
 
-    $("div.content").load(url, function(response, status, xhr) {
-      if (status == "error") {
-        $("div.span16").html("<%= java_not_available_error %>");
-      }
+        $("div.content").load(url, function(response, status, xhr) {
+            if (status == "error") {
+                $("div.span16").html("<%= java_not_available_error %>");
+            }
+        });
     });
-  });
 
 </script>
