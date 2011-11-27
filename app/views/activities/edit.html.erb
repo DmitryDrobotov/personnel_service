@@ -2,7 +2,7 @@
 
 <%= render 'form' %>
 
-<p>
-  <%= link_to "Show", @activity %> |
-  <%= link_to "View All", activities_path %>
-</p>
+<div>
+  <%= link_to t(:common_show), @activity %> |
+  <%= link_to t(:common_view_all), activities_path %>
+</div>

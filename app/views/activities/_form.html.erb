@@ -2,14 +2,14 @@
     <%= f.error_messages %>
 
     <div class="clearfix">
-      <%= f.label :user %>
+      <%= f.label t(:activities_user) %>
       <div class="input">
         <%= f.collection_select :user_id, User.all, :id, :full_name %>
       </div>
     </div>
 
     <div class="clearfix">
-      <%= f.label :event %>
+      <%= f.label t(:activities_event) %>
       <div class="input">
         <%= f.collection_select :event_id, Event.all, :id, :title %>
       </div>

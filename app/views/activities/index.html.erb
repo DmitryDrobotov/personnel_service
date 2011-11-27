@@ -14,9 +14,9 @@
         <td><%= link_to activity.user.full_name, activity.user if can? :read, activity.user %></td>
         <td><%= link_to activity.event.title, activity.event if can? :read, activity.event %></td>
         <td>
-          <%= link_to "Show", activity if can? :read, activity %>
-          <%= link_to "Edit", edit_activity_path(activity) if can? :update, activity %>
-          <%= link_to "Destroy", activity, :confirm => 'Are you sure?', :method => :delete if can? :destroy, activity %>
+          <%= link_to t(:common_show), activity if can? :read, activity %>
+          <%= link_to t(:common_edit), edit_activity_path(activity) if can? :update, activity %>
+          <%= link_to t(:common_delete), activity, :confirm => 'Are you sure?', :method => :delete if can? :destroy, activity %>
         </td>
       </tr>
   <% end %>
@@ -24,5 +24,5 @@
 </table>
 
 <div>
-  <%= button_to "New Activity", new_activity_path, :class => "btn primary", :method => :get if can? :create, Activity %>
+  <%= button_to t(:activities_new), new_activity_path, :class => "btn primary", :method => :get if can? :create, Activity %>
 </div>
