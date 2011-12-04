@@ -46,4 +46,8 @@ class UsersController < ApplicationController
 
   end
 
+  def activity
+
+  end
+
 end

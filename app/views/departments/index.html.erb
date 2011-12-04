@@ -3,8 +3,8 @@
 <table class="zebra-striped" id="sortTable">
   <thead>
   <tr>
-    <th>Department name</th>
-    <th>Actions</th>
+    <th><%= t(:departments_dept_name) %></th>
+    <th><%= t(:departments_actions) %></th>
   </tr>
   </thead>
   <tbody>
@@ -14,8 +14,8 @@
           <%= department.name %>
         </td>
         <td>
-          <%= link_to "Edit", edit_department_path(department) if can? :update, department %>
-          <%= link_to "Destroy", department, :confirm => 'Are you shure?', :method => :delete if can? :destroy, department %>
+          <%= link_to t(:common_edit), edit_department_path(department) if can? :update, department %>
+          <%= link_to t(:common_delete), department, :confirm => 'Are you shure?', :method => :delete if can? :destroy, department %>
         </td>
       </tr>
   <% end %>
@@ -23,6 +23,6 @@
   </table>
 
 <div>
-  <%= button_to "New Department", new_department_path, :class => "btn primary", :method => :get if can? :create, Department %>
-  <%= link_to "Departments Size Statistics", departments_size_statistics_path %>
+  <%= button_to t(:departments_new), new_department_path, :class => "btn primary", :method => :get if can? :create, Department %>
+  <%= link_to t(:departments_size_statistics), departments_size_statistics_path %>
 </div>

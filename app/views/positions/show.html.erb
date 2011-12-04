@@ -1,20 +1,21 @@
-<% title "Position" %>
+<% title t(:positions_title) %>
 
 <p>
-  <strong>Department:</strong>
+  <strong><%= t(:positions_department) %>:</strong>
   <%= @position.department.name if @position.department.present? %>
 </p>
 <p>
-  <strong>Name:</strong>
+  <strong><%= t(:positions_title) %>:</strong>
   <%= @position.name %>
 </p>
 <p>
-  <strong>Manager:</strong>
+  <strong><%= t(:positions_manager) %>:</strong>
   <%= @position.manager.name if @position.manager.present? %>
 </p>
 
 <p>
-  <%= link_to "Edit", edit_position_path(@position) if can? :update, @position %> |
-  <%= link_to "Destroy", @position, :confirm => 'Are you sure?', :method => :delete if can? :destroy, @position %> |
-  <%= link_to "View All", positions_path if can? :read, Position %>
+  <%= link_to t(:common_edit), edit_position_path(@position) if can? :update, @position %> |
+  <%= link_to t(:common_delete), @position, :confirm => 'Are you sure?', :method => :delete if can? :destroy, @position %>
+  |
+  <%= link_to t(:common_back_to_list), positions_path if can? :read, Position %>
 </p>

@@ -1,20 +1,21 @@
 <% title "Treatment" %>
 
 <p>
-  <strong>User From:</strong>
+  <strong><%= t(:treatments_user_from) %>:</strong>
   <%= user_full_name_link_to @treatment.user_from %>
 </p>
 <p>
-  <strong>Title:</strong>
+  <strong><%= t(:treatments_title) %>:</strong>
   <%= @treatment.title %>
 </p>
 <p>
-  <strong>Content:</strong>
+  <strong><%= t(:treatments_content) %>:</strong>
   <%= @treatment.content %>
 </p>
 
 <p>
-  <%= link_to "Edit", edit_treatment_path(@treatment) if can? :update, @treatment %> |
-  <%= link_to "Destroy", @treatment, :confirm => 'Are you sure?', :method => :delete if can? :destroy, @treatment %> |
-  <%= link_to "View All", treatments_path if can? :read, Treatment %>
+  <%= link_to t(:common_edit), edit_treatment_path(@treatment) if can? :update, @treatment %> |
+  <%= link_to t(:common_delete), @treatment, :confirm => 'Are you sure?', :method => :delete if can? :destroy, @treatment %>
+  |
+  <%= link_to t(:common_back_to_list), treatments_path if can? :read, Treatment %>
 </p>

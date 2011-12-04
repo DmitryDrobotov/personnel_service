@@ -1,8 +1,8 @@
-<% title "Edit Position" %>
+<% title t(:positions_title) %>
 
 <%= render 'form' %>
 
 <p>
-  <%= link_to "Show", @position %> |
-  <%= link_to "View All", positions_path %>
+  <%= link_to t(:common_show), @position %> |
+  <%= link_to t(:common_back_to_list), positions_path %>
 </p>

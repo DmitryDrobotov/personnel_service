@@ -1,12 +1,12 @@
-<% title "Treatments" %>
+<% title t(:treatments_title) %>
 
 <table class="zebra-striped" id="sortTable">
   <thead>
   <tr>
-    <th>Title</th>
-    <th>Content</th>
-    <th>User From</th>
-    <th>Actions</th>
+    <th><%= t(:treatments_title) %></th>
+    <th><%= t(:treatments_content) %></th>
+    <th><%= t(:treatments_user_from) %></th>
+    <th><%= t(:treatments_acitons) %></th>
   </tr>
   </thead>
   <tbody>
@@ -16,9 +16,9 @@
         <td><%= HTML_Truncator.truncate(treatment.content, 7) %></td>
         <td><%= user_full_name_link_to treatment.user_from %></td>
         <td>
-          <%= link_to "Show", treatment if can? :read, treatment %>
-          <%= link_to "Edit", edit_treatment_path(treatment) if can? :update, treatment %>
-          <%= link_to "Destroy", treatment, :confirm => 'Are you sure?', :method => :delete if can? :destroy, treatment %>
+          <%= link_to t(:common_show), treatment if can? :read, treatment %>
+          <%= link_to t(:common_edit), edit_treatment_path(treatment) if can? :update, treatment %>
+          <%= link_to t(:common_delete), treatment, :confirm => 'Are you sure?', :method => :delete if can? :destroy, treatment %>
         </td>
       </tr>
   <% end %>
@@ -26,5 +26,5 @@
 </table>
 
 <div>
-  <%= button_to "New Treatment", new_treatment_path, :class => "btn primary", :method => :get if can? :create, Treatment %>
+  <%= button_to t(:treatments_new), new_treatment_path, :class => "btn primary", :method => :get if can? :create, Treatment %>
 </div>

@@ -1,6 +1,6 @@
-<% title "Enrollment Statistics" %>
+<% title t(:users_enroll_statistics) %>
 
-Filter:
+<%= t(:users_enroll_statistices_filter) %>:
 <%= text_field_tag "startDate", User.minimum("created_at").year, :placeholder => 'Enter start date...' %>
 &nbsp;-&nbsp;
 <%= text_field_tag "endDate", User.maximum("created_at").year, :placeholder => 'Enter end date...' %>

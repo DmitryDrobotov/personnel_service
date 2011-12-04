@@ -4,15 +4,15 @@
       <%= link_to "Personnel Service", root_path, :class => "brand" %>
       <ul class="nav">
         <li><%= link_to t(:topbar_departments), departments_path %></li>
-        <li><%= link_to "Users", users_path %></li>
-        <li><%= link_to "Positions", positions_path %></li>
-        <li><%= link_to "Events", events_path %></li>
-        <li><%= link_to "Treatments", treatments_path %></li>
-        <li><%= link_to "Activities", activities_path %></li>
+        <li><%= link_to t(:topbar_users), users_path %></li>
+        <li><%= link_to t(:topbar_positions), positions_path %></li>
+        <li><%= link_to t(:topbar_events), events_path %></li>
+        <li><%= link_to t(:topbar_treatments), treatments_path %></li>
+        <li><%= link_to t(:topbar_activities), activities_path %></li>
         <li class="dropdown" data-dropdown="dropdown">
-          <a href="#" class="dropdown-toggle">Settings</a>
+          <a href="#" class="dropdown-toggle"><%= t(:topbar_settings) %></a>
           <ul class="dropdown-menu">
-            <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
+            <li><%= link_to t(:topbar_settings_signout), destroy_user_session_path, :method => :delete %></li>
           </ul>
         </li>
       </ul>

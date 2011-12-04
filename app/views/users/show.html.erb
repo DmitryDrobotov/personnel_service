@@ -1,32 +1,32 @@
 <% title "User" %>
 
 <p>
-  <strong>Email:</strong>
+  <strong><%= t(:users_email) %>:</strong>
   <%= @user.email %>
 </p>
 <p>
-  <strong>First Name:</strong>
+  <strong><%= t(:users_first_name) %>:</strong>
   <%= @user.first_name %>
 </p>
 <p>
-  <strong>Last Name:</strong>
+  <strong><%= t(:users_last_name) %>:</strong>
   <%= @user.last_name %>
 </p>
 <p>
-  <strong>Position:</strong>
+  <strong><%= t(:users_position) %>:</strong>
   <%= @user.position.name if @user.position.present? %>
 </p>
 <p>
-  <strong>Chief:</strong>
+  <strong><%= t(:users_chief) %>:</strong>
   <%= user_full_name_link_to @user.chief %>
 </p>
 <p>
-  <strong>Role:</strong>
+  <strong><%= t(:users_role) %>:</strong>
   <%= @user.role %>
 </p>
 
 <p>
-  <%= link_to "Edit", edit_user_path(@user) if can? :update, @user %> |
-  <%= link_to "Destroy", @user, :confirm => 'Are you sure?', :method => :delete if can? :destroy, @user %> |
-  <%= link_to "View All", users_path if can? :read, User %>
+  <%= link_to t(:common_edit), edit_user_path(@user) if can? :update, @user %> |
+  <%= link_to t(:common_delete), @user, :confirm => 'Are you sure?', :method => :delete if can? :destroy, @user %> |
+  <%= link_to t(:common_back_to_list), users_path if can? :read, User %>
 </p>

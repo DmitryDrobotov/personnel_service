@@ -1,15 +1,15 @@
-<% title "Users" %>
+<% title t(:users_title) %>
 
 <table class="zebra-striped" id="sortTable">
   <thead>
   <tr>
-    <th>Email</th>
-    <th>First Name</th>
-    <th>Last Name</th>
-    <th>Position</th>
-    <th>Chief</th>
-    <th>Role</th>
-    <th>Actions</th>
+    <th><%= t(:users_email) %></th>
+    <th><%= t(:users_first_name) %></th>
+    <th><%= t(:users_last_name) %></th>
+    <th><%= t(:users_position) %></th>
+    <th><%= t(:users_chief) %></th>
+    <th><%= t(:users_role) %></th>
+    <th><%= t(:users_actions) %></th>
   </tr>
   </thead>
   <tbody>
@@ -22,9 +22,9 @@
         <td><%= user_full_name_link_to user.chief %></td>
         <td><%= user.role %></td>
         <td>
-          <%= link_to "Show", user if can? :read, user %>
-          <%= link_to "Edit", edit_user_path(user) if can? :update, user %>
-          <%= link_to "Destroy", user, :confirm => 'Are you sure?', :method => :delete if can? :destroy, user %>
+          <%= link_to t(:common_show), user if can? :read, user %>
+          <%= link_to t(:common_edit), edit_user_path(user) if can? :update, user %>
+          <%= link_to t(:common_delete), user, :confirm => 'Are you sure?', :method => :delete if can? :destroy, user %>
         </td>
       </tr>
   <% end %>
@@ -32,6 +32,8 @@
   </table>
 
 <div>
-  <%= button_to "New User", new_user_path, :class => "btn primary", :method => :get if can? :read, User %>
-  <%= link_to "Users Enrollment Statistics", users_enrollment_statistics_path %>
+  <%= button_to t(:users_new), new_user_path, :class => "btn primary", :method => :get if can? :read, User %>
+  <%= link_to t(:users_enroll_statistics), users_enrollment_statistics_path %>
+  <br/>
+  <%= link_to "Активность работников", users_activity_path %>
 </div>

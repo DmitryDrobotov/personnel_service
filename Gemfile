@@ -27,6 +27,8 @@ gem 'awesome_print'
 gem 'faker'
 gem 'factory_girl'
 gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
+gem 'devise-russian'
+gem 'russian'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

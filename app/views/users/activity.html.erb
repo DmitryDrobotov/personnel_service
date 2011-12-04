@@ -1,13 +1,13 @@
-<% title "Size Statistics" %>
+<% title "Активность работников" %>
 
 <ul class="tabs" data-tabs="tabs">
-  <li class="active"><%= link_to t(:departments_stat_column), "#size_statistics_column" %></li>
-  <li><%= link_to t(:departments_stat_pie), "#size_statistics_pie" %></li>
+  <li class="active"><%= link_to "Самые активные", "#mostActive" %></li>
+  <li><%= link_to "Наименее активные", "#leastActive" %></li>
 </ul>
 
 <div class="tab-content">
-  <div id="size_statistics_column" class="tab-pane active"></div>
-  <div id="size_statistics_pie" class="tab-pane"></div>
+  <div id="mostActive" class="tab-pane active"></div>
+  <div id="leastActive" class="tab-pane"></div>
 </div>
 
 <script type="text/javascript">
@@ -16,13 +16,13 @@
         function buildChart(data) {
             var sizeStatisticsChart = new FusionCharts("/charts/Column3D.swf", "chart_id", "940", "400", "0", "1");
             sizeStatisticsChart.setXMLData(data);
-            sizeStatisticsChart.render("size_statistics_column");
+            sizeStatisticsChart.render("mostActive");
         }
 
         function obtainData() {
             var url = "/ajax/java_url_data?"
-                    + "method=userActivities" + "&"
-                    + "excipient=deptSizeStatistics";
+                    + "method=extremumActivity" + "&"
+                    + "extremumType=mostActive";
             $.ajax({
                 type: "GET",
                 url: url,
@@ -41,15 +41,15 @@
     $().ready(function() {
 
         function buildChart(data) {
-            var sizeStatisticsChart = new FusionCharts("/charts/Pie3D.swf", "chart_id", "940", "400", "0", "1");
+            var sizeStatisticsChart = new FusionCharts("/charts/Column3D.swf", "chart_id", "940", "400", "0", "1");
             sizeStatisticsChart.setXMLData(data);
-            sizeStatisticsChart.render("size_statistics_pie");
+            sizeStatisticsChart.render("leastActive");
         }
 
         function obtainData() {
             var url = "/ajax/java_url_data?"
-                    + "method=userActivities" + "&"
-                    + "excipient=deptSizeStatistics";
+                    + "method=extremumActivity" + "&"
+                    + "extremumType=leastActive";
             $.ajax({
                 type: "GET",
                 url: url,

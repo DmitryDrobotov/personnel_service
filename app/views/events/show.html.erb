@@ -1,24 +1,24 @@
 <% title "Event" %>
 
 <p>
-  <strong>Title:</strong>
+  <strong><%= t(:events_table_title) %>:</strong>
   <%= @event.title %>
 </p>
 <p>
-  <strong>Description:</strong>
+  <strong><%= t(:events_description) %>:</strong>
   <%= @event.description %>
 </p>
 <p>
-  <strong>Start At:</strong>
+  <strong><%= t(:events_start_at) %>:</strong>
   <%= @event.start_at %>
 </p>
 <p>
-  <strong>End At:</strong>
+  <strong><%= t(:events_end_at) %>:</strong>
   <%= @event.end_at %>
 </p>
 
 <p>
-  <%= link_to "Edit", edit_event_path(@event) if can? :update, @event %> |
-  <%= link_to "Destroy", @event, :confirm => 'Are you sure?', :method => :delete if can? :destroy, @event %> |
-  <%= link_to "View All", events_path if can? :read, Event %>
+  <%= link_to t(:common_edit), edit_event_path(@event) if can? :update, @event %> |
+  <%= link_to t(:common_delete), @event, :confirm => 'Are you sure?', :method => :delete if can? :destroy, @event %> |
+  <%= link_to t(:common_back_to_list), events_path if can? :read, Event %>
 </p>

@@ -1,11 +1,11 @@
 <% title "Activity" %>
 
 <p>
-  <strong>User:</strong>
+  <strong><%= t(:activities_user) %>:</strong>
   <%= link_to @activity.user.full_name, @activity.user if can? :read, @activity.user %>
 </p>
 <p>
-  <strong>Event:</strong>
+  <strong><%= t(:activities_event) %>:</strong>
   <%= link_to @activity.event.title, @activity.event if can? :read, @activity.event %>
 </p>
 

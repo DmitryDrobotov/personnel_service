@@ -1,12 +1,12 @@
-<% title "Positions" %>
+<% title t(:positions_title) %>
 
 <table class="zebra-striped" id="sortTable">
   <thead>
   <tr>
-    <th>Position</th>
-    <th>Department</th>
-    <th>Manager</th>
-    <th>Actions</th>
+    <th><%= t(:positions_position) %></th>
+    <th><%= t(:positions_department) %></th>
+    <th><%= t(:positions_manager) %></th>
+    <th><%= t(:positions_actions) %></th>
   </tr>
   </thead>
   <tbody>
@@ -16,9 +16,9 @@
         <td><%= position.department.name if position.department.present? %></td>
         <td><%= position.manager.name if position.manager.present? %></td>
         <td>
-          <%= link_to "Show", position if can? :read, position %>
-          <%= link_to "Edit", edit_position_path(position) if can? :update, position %>
-          <%= link_to "Destroy", position, :confirm => 'Are you sure?', :method => :delete if can? :destroy, position %>
+          <%= link_to t(:common_show), position if can? :read, position %>
+          <%= link_to t(:common_edit), edit_position_path(position) if can? :update, position %>
+          <%= link_to t(:common_delete), position, :confirm => 'Are you sure?', :method => :delete if can? :destroy, position %>
         </td>
       </tr>
   <% end %>
@@ -26,5 +26,5 @@
 </table>
 
 <div>
-  <%= button_to "New Position", new_position_path, :class => "btn primary", :method => :get if can? :create, Position %>
+  <%= button_to t(:positions_new), new_position_path, :class => "btn primary", :method => :get if can? :create, Position %>
 </div>

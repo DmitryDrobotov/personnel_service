@@ -1,12 +1,13 @@
 <% title "Department" %>
 
 <p>
-  <strong>Name:</strong>
+  <strong><%= t(:departments_dept_name) %></strong>
   <%= @department.name %>
 </p>
 
 <p>
-  <%= link_to "Edit", edit_department_path(@department) if can? :update, @department %> |
-  <%= link_to "Destroy", @department, :confirm => 'Are you sure?', :method => :delete if can? :destroy, @department %> |
-  <%= link_to "View All", departments_path if can? :read, Deaprtment %>
+  <%= link_to t(:common_edit), edit_department_path(@department) if can? :update, @department %> |
+  <%= link_to t(:common_delete), @department, :confirm => 'Are you sure?', :method => :delete if can? :destroy, @department %>
+  |
+  <%= link_to t(:common_back_to_list), departments_path if can? :read, Department %>
 </p>

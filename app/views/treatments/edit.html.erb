@@ -1,8 +1,8 @@
-<% title "Edit Treatment" %>
+<% title t(:treatments_title) %>
 
 <%= render 'form' %>
 
 <p>
-  <%= link_to "Show", @treatment %> |
-  <%= link_to "View All", treatments_path %>
+  <%= link_to t(:common_show), @treatment %> |
+  <%= link_to t(:common_back_to_list), treatments_path %>
 </p>

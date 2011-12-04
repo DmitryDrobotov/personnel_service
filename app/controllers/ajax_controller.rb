@@ -1,6 +1,6 @@
 class AjaxController < ApplicationController
 
-  JAVA_URL = "http://192.168.43.216:8080/PersonnelService/graphs.do"
+  JAVA_URL = "http://192.168.1.8:8080/PersonnelService/graphs.do"
   TIMEOUT = 20
 
   require 'open-uri'

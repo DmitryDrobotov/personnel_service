@@ -4,6 +4,7 @@ PersonnelService::Application.routes.draw do
   get "ajax/java_url_data"
   get "activities/graph"
   get "users/enrollment_statistics"
+  get "users/activity"
   get "departments/size_statistics"
 
   authenticate :user do

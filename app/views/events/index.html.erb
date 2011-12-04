@@ -1,13 +1,13 @@
-<% title "Events" %>
+<% title t(:events_title) %>
 
 <table class="zebra-striped" id="sortTable">
   <thead>
   <tr>
-    <th>Title</th>
-    <th>Description</th>
-    <th>Start At</th>
-    <th>End At</th>
-    <th>Actions</th>
+    <th><%= t(:events_table_title) %></th>
+    <th><%= t(:events_description) %></th>
+    <th><%= t(:events_start_at) %></th>
+    <th><%= t(:events_end_at) %></th>
+    <th><%= t(:events_actions) %></th>
   </tr>
   </thead>
   <tbody>
@@ -18,9 +18,9 @@
         <td><%= event.start_at.to_s(:long) %></td>
         <td><%= event.end_at.to_s(:long) %></td>
         <td>
-          <%= link_to "Show", event if can? :read, event%>
-          <%= link_to "Edit", edit_event_path(event) if can? :update, event %>
-          <%= link_to "Destroy", event, :confirm => 'Are you sure?', :method => :delete if can? :destroy, event %>
+          <%= link_to t(:common_show), event if can? :read, event %>
+          <%= link_to t(:common_edit), edit_event_path(event) if can? :update, event %>
+          <%= link_to t(:common_delete), event, :confirm => 'Are you sure?', :method => :delete if can? :destroy, event %>
         </td>
       </tr>
   <% end %>
@@ -28,5 +28,5 @@
 </table>
 
 <div>
-  <%= button_to "New Event", new_event_path, :class => "btn primary", :method => :get if can? :create, Event %>
+  <%= button_to t(:events_new), new_event_path, :class => "btn primary", :method => :get if can? :create, Event %>
 </div>
